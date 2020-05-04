@@ -8,6 +8,7 @@ const db = require('./queries')
 //app.use(express.static('./dist/Skribblist'));
 
 app.use(bodyParser.json())
+app.use(cors())
 
 app.use(
   bodyParser.urlencoded({
