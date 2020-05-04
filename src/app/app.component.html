@@ -1,11 +1,17 @@
 <h1>S k i b b l i s t</h1>
-<p>Custom word lists for skribbl.io.</p>
+<p class="sitedesc">Custom word lists for skribbl.io.</p>
 
 <ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">Public lists</a></li>
-  <li><a href="#contact">Create list</a></li>
-  <li><a href="#about">Edit list</a></li>
+  <li><a class="active" href="home">Home</a></li>
+  <li><a href="news">Public lists</a></li>
+  <li><a href="contact">Create list</a></li>
+  <li><a href="about">Edit list</a></li>
 </ul>
+
+<p class='teststyle'>All info below is from backend:</p>
+<div *ngFor="let list of wordlists">
+  <p class='teststyle'>Name: {{list.list_name}}, ID: {{list.id}}</p>
+</div>
+
 
 <router-outlet></router-outlet>

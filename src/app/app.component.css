@@ -2,9 +2,12 @@ h1 {
   color: white;
   text-align: center;
 }
-p {
+.sitedesc {
   text-align: center;
   color: #168ff2;
+}
+.teststyle {
+  color: white;
 }
 
 ul {
