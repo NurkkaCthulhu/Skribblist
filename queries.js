@@ -10,7 +10,7 @@ let connectionString = {
   port: 5432,
 };
 
-
+console.log(env);
 if (env === 'development') {
   connectionString.database = 'skribblist';
 } else {
