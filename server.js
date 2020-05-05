@@ -17,14 +17,14 @@ app.use(
 )
 
 
-app.get('/', (req, res) =>
+app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/Skribblist/'}),
 );
-/*
+
 app.get('/', (req, res) => {
     res.json({ info: 'Node.js, Express, and Postgres API' })
 });
-*/
+
 app.get('/lists', db.getLists);
 
 app.listen(process.env.PORT || 8080, () => {
