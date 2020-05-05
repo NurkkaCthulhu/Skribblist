@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   updateList(): void {
     this.wordlists = [];
-    fetch('http://localhost:8080/lists')
+    fetch('/lists')
     .then((resp) => resp.json())
     .then((lists) => {
       console.log(lists);
