@@ -30,7 +30,7 @@ const getLists = (request, response) => {
     if (error) {
       throw error
     }
-    response.status(200).json(results.rows)
+    response.status(200).json({name: 'moi, id: 1'})
   })
 }
 
