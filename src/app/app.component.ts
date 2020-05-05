@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     fetch('/lists')
     .then((resp) => {
       console.log(resp);
+      console.log(resp.body);
       return resp.json();
     })
     .then((lists) => {

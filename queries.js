@@ -24,7 +24,9 @@ const pool = new Pool(connectionString);
 pool.on('connect', () => console.log('connected to db'));
 
 const getLists = (request, response) => {
+  console.log('getting list')
   pool.query('SELECT * FROM wordlist ORDER BY id ASC', (error, results) => {
+    console.log(results.rows);
     if (error) {
       throw error
     }
