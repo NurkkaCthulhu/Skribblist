@@ -5,7 +5,7 @@ var cors = require('cors');
 const app = express();
 const db = require('./queries')
 
-app.use(express.static('./dist/Skribblist'));
+//app.use(express.static('./dist/Skribblist'));
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -16,9 +16,10 @@ app.use(
   })
 )
 
+/*
 app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/Skribblist/'}),
-);
+);*/
 
 app.get('/', (req, res) => {
     res.json({ info: 'Node.js, Express, and Postgres API' })
