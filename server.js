@@ -16,7 +16,6 @@ app.use(
   })
 )
 
-
 app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/Skribblist/'}),
 );

@@ -14,9 +14,13 @@ export class AppComponent implements OnInit {
   }
 
   updateList(): void {
+    console.log('jee')
     this.wordlists = [];
     fetch('/lists')
-    .then((resp) => resp.json())
+    .then((resp) => {
+      console.log(resp);
+      resp.json();
+    })
     .then((lists) => {
       console.log(lists);
       lists.forEach((element) => {
