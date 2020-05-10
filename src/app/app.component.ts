@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'Skribblist';
   wordlists = [];
+  devURL = 'http://localhost:8080';
 
   ngOnInit(): void {
     this.updateList();
@@ -16,7 +17,15 @@ export class AppComponent implements OnInit {
   updateList(): void {
     console.log('jee')
     this.wordlists = [];
-    fetch('/lists')
+    fetch(this.devURL + '/lists', {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+
+    }
+    
+    )
     .then((resp) => {
       console.log(resp);
       console.log(resp.body);
