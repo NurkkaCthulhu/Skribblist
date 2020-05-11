@@ -2,7 +2,7 @@
 <p class="sitedesc">Custom word lists for skribbl.io.</p>
 
 <ul>
-  <li><a class="active" href="home">Home</a></li>
+  <li><a class="active" href="lists">Home</a></li>
   <li><a href="news">Public lists</a></li>
   <li><a href="contact">Create list</a></li>
   <li><a href="about">Edit list</a></li>
@@ -10,8 +10,10 @@
 
 <p class='teststyle'>All info below is from backend:</p>
 <div *ngFor="let list of wordlists">
-  <p class='teststyle'>Name: {{list.list_name}}, ID: {{list.id}}</p>
+  <p class='teststyle'>Name: {{list.list_name}}, ID: {{list.id}}.</p>
+  <ul *ngFor="let word of list.words">
+    <li >* {{word}}</li>
+  </ul>
 </div>
-
 
 <router-outlet></router-outlet>

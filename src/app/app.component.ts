@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,24 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'Skribblist';
   wordlists = [];
-  devURL = 'http://localhost:8080';
+  baseUrl = environment.baseUrl;
 
   ngOnInit(): void {
     this.updateList();
   }
 
   updateList(): void {
-    console.log('jee')
+    console.log('url:' + this.baseUrl);
     this.wordlists = [];
-    fetch(this.devURL + '/lists', {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-
-    }
-    
-    )
+    fetch(this.baseUrl + 'lists')
     .then((resp) => {
       console.log(resp);
       console.log(resp.body);
@@ -34,8 +27,10 @@ export class AppComponent implements OnInit {
     .then((lists) => {
       console.log(lists);
       lists.forEach((element) => {
+        element.words = element.words.split(',');
         this.wordlists.push(element);
       });
+      console.log(this.wordlists);
     });
   }
 

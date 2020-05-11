@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PublicListsComponent } from './public-lists/public-lists.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PublicListsComponent
+    PublicListsComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
