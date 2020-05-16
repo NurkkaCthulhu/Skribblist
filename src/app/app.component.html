@@ -2,18 +2,26 @@
 <p class="sitedesc">Custom word lists for skribbl.io.</p>
 
 <ul>
-  <li><a class="active" href="lists">Home</a></li>
-  <li><a href="news">Public lists</a></li>
-  <li><a href="contact">Create list</a></li>
-  <li><a href="about">Edit list</a></li>
+  <li><a class="active" href="lists">Public lists</a></li>
+  <li><a href="create">Create list</a></li>
+  <li><a href="edit">Edit list</a></li>
 </ul>
 
 <p class='teststyle'>All info below is from backend:</p>
 <div *ngFor="let list of wordlists">
   <p class='teststyle'>Name: {{list.list_name}}, ID: {{list.id}}.</p>
   <ul *ngFor="let word of list.words">
-    <li >* {{word}}</li>
+    <li>* {{word}}</li>
   </ul>
+  <div>
+    <p>Click the word list below to copy it for skribbl.io:</p>
+    <p id="list.id" (click)="copyWords(list.words)"
+      class="wordlist"
+      [matTooltip]="tooltipContent"
+      matTooltipPosition="after"
+      aria-label="Tooltip for before and after copying text"
+    >{{list.words}}</p>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
