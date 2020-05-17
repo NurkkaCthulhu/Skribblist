@@ -42,6 +42,32 @@ app.get('/lists', function (req, res) {
   })
 });
 
+app.post('/lists', function (req, res) {
+  console.log('posting list!')
+  const { words, code, info, list_name, public } = req.body
+
+  pool.query('INSERT INTO wordlist (words, code, info, list_name, public) VALUES ($1, $2, $3, $4, $5)', [words, code, info, list_name, public], (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(201);
+    res.send({name: list_name})
+  })
+});
+
+app.delete("/lists/:id([0-9]+)", function(req, res) {
+  console.log('delte!!!')
+  let removeID = req.params.id;
+  pool.query('DELETE FROM wordlist WHERE id = $1', [removeID], (error, results) => {
+    if (error) {
+      throw error
+    }
+    let response = { id: removeID };
+    res.status(200);
+    res.send(response);
+  })
+});
+
 let connectionString = {
   user: 'anumm',
   host: 'localhost',

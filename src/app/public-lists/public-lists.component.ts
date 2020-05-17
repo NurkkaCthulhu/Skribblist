@@ -12,6 +12,7 @@ export class PublicListsComponent implements OnInit {
   tooltipContent: string;
 
   constructor() { }
+
   ngOnInit(): void {
     this.updateList();
     this.tooltipContent = 'Click to copy the words';
