@@ -1,16 +1,25 @@
-<p class='titlestyle'>All info below is from backend:</p>
+<p class='titlestyle'>Click the title below to see all the words in the word list:</p>
 <div *ngFor="let list of wordlists">
-  <p class='titlestyle'>Name: {{list.list_name}}, ID: {{list.id}}.</p>
-  <ul *ngFor="let word of list.words">
-    <li class="wordstyle">* {{word}}</li>
-  </ul>
-  <div>
-    <p class="helpstyle">Click the word list below to copy it for skribbl.io:</p>
-    <p id="list.id" (click)="copyWords(list.words)"
-      class="wordlist"
-      [matTooltip]="tooltipContent"
-      matTooltipPosition="after"
-      aria-label="Tooltip for before and after copying text"
-    >{{list.words}}</p>
+  <div class="accord">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="matheader">
+          <mat-panel-title class="titlestyle">
+            {{list.list_name}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{list.info}}</p>
+
+        <div>
+          <p class="helpstyle">Click the word list below to copy it for skribbl.io:</p>
+          <p id="list.id" (click)="copyWords(list.words)"
+            class="wordlist"
+            [matTooltip]="tooltipContent"
+            matTooltipPosition="after"
+            aria-label="Tooltip for before and after copying text"
+          >{{list.words}}</p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </div>

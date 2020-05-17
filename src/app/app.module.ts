@@ -8,12 +8,14 @@ import { PublicListsComponent } from './public-lists/public-lists.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { CreateListComponent } from './create-list/create-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublicListsComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    CreateListComponent
   ],
   imports: [
     BrowserModule,

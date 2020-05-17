@@ -4,6 +4,7 @@
   border-radius: 10px;
   border-style: dashed;
   border-color: yellowgreen;
+  color: black;
 }
 
 .wordlist:hover {
@@ -23,4 +24,28 @@
 .helpstyle {
   font-weight: 200;
   color: rgb(255, 145, 117);
+}
+
+.matheader {
+  background-color: rgb(11, 11, 170);
+}
+
+.mat-expansion-panel {
+  background-color: #255198;
+}
+
+.mat-expansion-panel:hover {
+  background-color: rgb(69, 48, 167);
+}
+
+.mat-expansion-panel-header.mat-expanded:focus {
+  background-color: rgb(69, 48, 167);
+}
+
+.mat-expansion-panel-header.mat-expanded:hover {
+  background-color: rgb(51, 35, 124);
+}
+
+.accord {
+  margin-top: 5px;
 }
