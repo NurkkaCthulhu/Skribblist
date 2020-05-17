@@ -1,1 +1,16 @@
-<p>public-lists works!</p>
+<p class='titlestyle'>All info below is from backend:</p>
+<div *ngFor="let list of wordlists">
+  <p class='titlestyle'>Name: {{list.list_name}}, ID: {{list.id}}.</p>
+  <ul *ngFor="let word of list.words">
+    <li class="wordstyle">* {{word}}</li>
+  </ul>
+  <div>
+    <p class="helpstyle">Click the word list below to copy it for skribbl.io:</p>
+    <p id="list.id" (click)="copyWords(list.words)"
+      class="wordlist"
+      [matTooltip]="tooltipContent"
+      matTooltipPosition="after"
+      aria-label="Tooltip for before and after copying text"
+    >{{list.words}}</p>
+  </div>
+</div>
