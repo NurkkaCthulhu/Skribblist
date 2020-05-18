@@ -1,4 +1,55 @@
-<p>create-list works!</p>
-<button (click)="createList()">Create Data!</button>
+<div>
+  <h1>Create a new list</h1>
+  <div>
+    <form #formElement="ngForm" class="pure-form pure-form-aligned">
+        <div class="pure-control-group">
+          <div>
+            <p class="fieldnames">List title:</p>
+            <input
+              name="title"
+              type="text"
+              id="title"
+              class="inputdiv"
+              placeholder="Give a title to the list"
+              #mailElement="ngModel"
+              [(ngModel)]="userInput.list_name"
+              required>
+          </div>
+          <div>
+            <p class="fieldnames">List description:</p>
+            <textarea
+              name="info"
+              id="info"
+              placeholder="Write your list info here"
+              #mailElement="ngModel"
+              [(ngModel)]="userInput.info"></textarea>
+          </div>
+        </div>
+        <div class="pure-control-group">
+          <p class="fieldnames">Add a word to the list</p>
+          <input
+            class="inputdiv"
+            name="word_to_add"
+            type="text"
+            id="word_to_add"
+            placeholder="Write a single word here"
+            [(ngModel)]="newWord"
+            #swordElement="ngModel"
+            pattern="[a-zA-Z0-9æøåäö '-]*"
+            required>
+          <button mat-raised-button color="primary" [disabled]="!swordElement.valid" (click)="addWordToList()">Add</button>
+          <p class="warninglabel" *ngIf="swordElement.touched && swordElement.invalid">Accepted letters: a-z, 0-9, space, ' and -. All letters are changed to lowercase.</p>
+        </div>
+        <div>
+          <div *ngFor="let word of allWords">
+            <button mat-raised-button color="warn" (click)="removeFromWordList(word)">Delete</button>
+            <p class="floatton">{{word}}</p>
+          </div>
+        </div>
+        <div class="pure-controls">
+          <button mat-raised-button color="primary" (click)="createList()" [disabled]="disableSubmit()" class="pure-button pure-button-primary savebtn">Save the list</button>
+        </div>
+    </form>
+  </div>
 
-<button (click)="deleteList()">Delete Data!</button>
+</div>

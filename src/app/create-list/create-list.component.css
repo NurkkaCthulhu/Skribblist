@@ -1,0 +1,49 @@
+h1 {
+  color: aliceblue;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+.ng-valid[required] {
+  border-left: 20px solid green;
+}
+
+.ng-invalid:not(form) {
+  border-left: 20px solid red;
+}
+
+.floatton {
+  margin: 10px;
+  display: inline-block;
+  color: white;
+}
+
+.fieldnames {
+  color: white;
+  margin-bottom: 3px;
+}
+
+.inputdiv {
+  width: 50%;
+}
+
+.warninglabel {
+  color: orange;
+  margin-top: 0px;
+  font-size: smaller;
+}
+
+#info {
+  height: 5em;
+  width: 50%;
+}
+
+#word_to_add {
+  margin-right: 10px;
+  width: 45%;
+}
+
+.savebtn {
+  margin-top: 10px;
+}
+
