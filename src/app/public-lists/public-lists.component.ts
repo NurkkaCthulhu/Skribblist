@@ -22,16 +22,13 @@ export class PublicListsComponent implements OnInit {
     this.wordlists = [];
     fetch(this.baseUrl + 'lists')
     .then((resp) => {
-      console.log(resp);
       return resp.json();
     })
     .then((lists) => {
-      console.log(lists)
       lists.forEach((element) => {
         element.words = element.words.split(',');
         this.wordlists.push(element);
       });
-      console.log(this.wordlists);
     });
   }
 
