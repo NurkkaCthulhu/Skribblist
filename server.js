@@ -102,8 +102,7 @@ if (env === 'development') {
   connectionString.database = 'skribblist';
 } else {
   connectionString = {
-  connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL,
-  ssl: true
+  connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL
   };
 };
 const pool = new Pool(connectionString);
