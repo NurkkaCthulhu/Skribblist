@@ -26,6 +26,25 @@ app.listen(process.env.PORT || 8080, () => {
 app.get('/*', (req, res) =>
     res.sendFile(path.join(__dirname + '/dist/Skribblist/index.html')),
 );
+
+let connectionString = {
+  user: 'anumm',
+  host: 'localhost',
+  password: 'admin',
+  //port: 5432,
+};
+
+const env = process.env.NODE_ENV || 'development';
+if (env === 'development') {
+  connectionString.database = 'skribblist';
+} else {
+  connectionString = {
+  connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL
+  };
+};
+const pool = new Pool(connectionString);
+pool.on('connect', () => console.log('connected to db'));
+
 /*
 app.get('/', (req, res) => {
     res.json({ info: 'Node.js, Express, and Postgres API' })
@@ -90,23 +109,7 @@ app.delete("/lists/:id([0-9]+)", function(req, res) {
   })
 });
 
-let connectionString = {
-  user: 'anumm',
-  host: 'localhost',
-  password: 'admin',
-  //port: 5432,
-};
 
-const env = process.env.NODE_ENV || 'development';
-if (env === 'development') {
-  connectionString.database = 'skribblist';
-} else {
-  connectionString = {
-  connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL
-  };
-};
-const pool = new Pool(connectionString);
-pool.on('connect', () => console.log('connected to db'));
 
 const getLists = (request, response) => {
   console.log('getting list')
