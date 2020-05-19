@@ -6,10 +6,10 @@ import { CreateListComponent } from './create-list/create-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 
 const routes: Routes = [
-  { path: 'lists', component: PublicListsComponent },
+  { path: 'home', component: PublicListsComponent },
   { path: 'create', component: CreateListComponent },
   { path: 'edit', component: EditListComponent },
-  { path: '', redirectTo: '/lists', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent }
 ];
 
