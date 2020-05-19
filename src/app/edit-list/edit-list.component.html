@@ -32,6 +32,7 @@
 <div *ngIf="showDelete">
   <p class="warnlabel">DELETE THE LIST</p>
   <p class="scufflabel">List name: {{foundList.list_name}}</p>
+  <p class="scufflabel">List description: {{foundList.info}}</p>
   <p class="scufflabel">List words: {{foundList.words}}</p>
   <button mat-raised-button color="warn" (click)="deleteList()">Delete</button>
 

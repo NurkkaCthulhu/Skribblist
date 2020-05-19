@@ -42,3 +42,7 @@ li a:hover:not(.active) {
 .appcontent {
   margin: 20px 50px;
 }
+
+.leftlink {
+  margin-left: 50px;
+}

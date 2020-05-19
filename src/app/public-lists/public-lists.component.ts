@@ -19,16 +19,12 @@ export class PublicListsComponent implements OnInit {
   }
 
   updateList(): void {
-    console.log('url:' + this.baseUrl);
     this.wordlists = [];
     fetch(this.baseUrl + 'lists')
     .then((resp) => {
-      console.log(resp);
-      console.log(resp.body);
       return resp.json();
     })
     .then((lists) => {
-      console.log(lists);
       lists.forEach((element) => {
         element.words = element.words.split(',');
         this.wordlists.push(element);
