@@ -91,8 +91,9 @@ let connectionString = {
   user: 'anumm',
   host: 'localhost',
   password: 'admin',
-  port: 5432,
+  //port: 5432,
 };
+
 const env = process.env.NODE_ENV || 'development';
 if (env === 'development') {
   connectionString.database = 'skribblist';
