@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
 import SkribblList from '../SkribblList';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-list',
@@ -11,7 +12,7 @@ export class CreateListComponent implements OnInit {
 
   baseUrl = environment.baseUrl;
   userInput: SkribblList = {words: '',
-                          code: 'coolCodeHere',
+                          code: '',
                           info: '',
                           list_name: '',
                           public: true
@@ -19,7 +20,7 @@ export class CreateListComponent implements OnInit {
   newWord: string = '';
   allWords = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -55,9 +56,8 @@ export class CreateListComponent implements OnInit {
       return response.json();
     })
     .then(data => {
-      console.log('Success; posted a list called:', data.name);
       this.userInput = {words: '',
-                          code: 'coolCodeHere',
+                          code: '',
                           info: '',
                           list_name: '',
                           public: true
@@ -65,18 +65,11 @@ export class CreateListComponent implements OnInit {
       this.newWord = '';
       this.allWords = [];
       alert('List posted successfully!');
+      this.router.navigate(['/lists']);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
-  }
-
-  deleteList() {
-    fetch(this.baseUrl + 'lists/16', {
-      method: 'DELETE',
-    })
-    .then(res => res.json())
-    .then(res => console.log(res));
   }
 
 }

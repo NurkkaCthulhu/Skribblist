@@ -42,8 +42,28 @@ app.get('/lists', function (req, res) {
   })
 });
 
+// get list for modifying
+app.get('/lists/:listId&:listCode', function (req, res) {
+  console.log('getting list with code and name')
+  const userId = req.params.listId;
+  const userCode = req.params.listCode;
+  console.log('name: ' + userId + ' code: ' + userCode)
+  pool.query('SELECT * FROM wordlist WHERE (id = $1 AND code = $2)', [userId, userCode], (error, results) => {
+    console.log(results.rows);
+    if (error) {
+      throw error 
+    }
+    if (results.rows.length > 0) {
+      res.send(results.rows[0])
+    } else {
+      let response = { error: 'Password and ID do not match.' };
+      res.status(404);
+      res.send(response);
+    }
+  })
+});
+
 app.post('/lists', function (req, res) {
-  console.log('posting list!')
   const { words, code, info, list_name, public } = req.body
 
   pool.query('INSERT INTO wordlist (words, code, info, list_name, public) VALUES ($1, $2, $3, $4, $5)', [words, code, info, list_name, public], (error, results) => {
@@ -56,7 +76,6 @@ app.post('/lists', function (req, res) {
 });
 
 app.delete("/lists/:id([0-9]+)", function(req, res) {
-  console.log('delte!!!')
   let removeID = req.params.id;
   pool.query('DELETE FROM wordlist WHERE id = $1', [removeID], (error, results) => {
     if (error) {

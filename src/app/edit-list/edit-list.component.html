@@ -1,0 +1,42 @@
+<h2>Find a list for deletion</h2>
+<p class="scufflabel">Give your list ID and your list's password to delete it from the database.</p>
+<div>
+  <p class="scufflabel">List ID (hint: found from the Public lists)</p>
+  <input
+    name="id"
+    type="text"
+    id="word_to_add"
+    placeholder="List id"
+    [(ngModel)]="userId"
+    pattern="[0-9]*"
+    #idElement="ngModel"
+    required>
+</div>
+<div>
+  <p class="scufflabel">List password</p>
+  <input
+    name="password"
+    type="text"
+    id="password"
+    placeholder="Give the list password"
+    [(ngModel)]="userPass"
+    #passElement="ngModel"
+    minlength="12"
+    maxlength="12"
+    required>
+  </div>
+<div>
+  <button mat-raised-button color="primary" [disabled]="!passElement.valid || !idElement.valid" (click)="getList()" class="findbtn">Find your list!</button>
+</div>
+
+<div *ngIf="showDelete">
+  <p class="warnlabel">DELETE THE LIST</p>
+  <p class="scufflabel">List name: {{foundList.list_name}}</p>
+  <p class="scufflabel">List words: {{foundList.words}}</p>
+  <button mat-raised-button color="warn" (click)="deleteList()">Delete</button>
+
+</div>
+
+<div *ngIf="showError">
+  <p>Password and ID do not match!</p>
+</div>

@@ -5,11 +5,11 @@ h1 {
 }
 
 .ng-valid[required] {
-  border-left: 20px solid green;
+  border-left: 5px solid green;
 }
 
 .ng-invalid:not(form) {
-  border-left: 20px solid red;
+  border-left: 5px solid red;
 }
 
 .floatton {

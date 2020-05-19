@@ -1,0 +1,19 @@
+h2 {
+    color: aliceblue;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+.scufflabel {
+    color: white;
+    margin-bottom: 3px;
+}
+
+.warnlabel {
+    color: rgb(228, 124, 83);
+    font-weight: bolder;
+}
+
+.findbtn {
+    margin-top: 10px;
+}

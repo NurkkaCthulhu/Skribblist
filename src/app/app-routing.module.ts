@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PublicListsComponent } from './public-lists/public-lists.component';
 import { CreateListComponent } from './create-list/create-list.component';
+import { EditListComponent } from './edit-list/edit-list.component';
 
 const routes: Routes = [
   { path: 'lists', component: PublicListsComponent },
   { path: 'create', component: CreateListComponent },
+  { path: 'edit', component: EditListComponent },
   { path: '', redirectTo: '/lists', pathMatch: 'full' },
   { path: '**', component: NotfoundComponent }
 ];

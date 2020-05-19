@@ -49,3 +49,8 @@
 .accord {
   margin-top: 5px;
 }
+
+.mat-expansion-panel-header-description {
+  text-align: end;
+  display: inline;
+}
