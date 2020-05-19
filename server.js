@@ -34,11 +34,14 @@ app.get('/', (req, res) => {
 app.get('/lists', function (req, res) {
   console.log('getting list')
   pool.query('SELECT * FROM wordlist ORDER BY id ASC', (error, results) => {
-    console.log(results.rows);
     if (error) {
       throw error
     }
-    res.send(results.rows)
+    if (results) {
+      res.send(results.rows)
+    } else {
+      res.send({error: ' unknowns'})
+    }
   })
 });
 
