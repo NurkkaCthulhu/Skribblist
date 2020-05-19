@@ -51,6 +51,7 @@
             [(ngModel)]="newWord"
             #swordElement="ngModel"
             pattern="[a-zA-Z0-9æøåäö '-]*"
+            minlength="1"
             maxlength="30">
           <button mat-raised-button color="primary" [disabled]="!swordElement.valid" (click)="addWordToList()">Add</button>
           <p class="warninglabel" *ngIf="swordElement.touched && swordElement.invalid">Accepted letters: a-z, 0-9, space, ' and -. All letters are changed to lowercase. Max length 30 chars.</p>
@@ -62,7 +63,7 @@
           </div>
         </div>
         <div class="pure-controls">
-          <p class="fieldnames">You need a minimum of 4 words to the list</p>
+          <p class="fieldnames">Hint: You need a minimum of 4 words to the list</p>
           <button mat-raised-button color="primary" (click)="createList()" [disabled]="disableSubmit() || !codeElement.valid" class="pure-button pure-button-primary savebtn">Save the list</button>
         </div>
     </form>

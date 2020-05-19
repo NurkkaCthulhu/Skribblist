@@ -65,7 +65,7 @@ export class CreateListComponent implements OnInit {
       this.newWord = '';
       this.allWords = [];
       alert('List posted successfully!');
-      this.router.navigate(['/lists']);
+      this.router.navigate(['/home']);
     })
     .catch((error) => {
       console.error('Error:', error);

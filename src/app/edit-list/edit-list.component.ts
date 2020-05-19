@@ -58,7 +58,7 @@ export class EditListComponent implements OnInit {
       this.showDelete = false;
       this.foundList = {  id: 0, words: '', code: '', info: '', list_name: '', public: false, likes: 0};
       alert("List deleted!");
-      this.router.navigate(['/lists']);
+      this.router.navigate(['/home']);
     });
   }
 
